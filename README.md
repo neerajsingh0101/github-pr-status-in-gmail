@@ -52,13 +52,13 @@ This Chrome extension is not published on the chrome web store. Please follow th
 mentioned below to install it.
 
 1. Open https://github.com/neerajsingh0101/github-pr-status-in-gmail . 
-2. Click **Code**.
-3. Click **Download zip**.
+2. Click **Code** and then **Download zip**.
    <img width="432" height="402" alt="Image" src="https://github.com/user-attachments/assets/50e24379-a1a8-4742-b287-bc753114b415" />
-4. Open `chrome://extensions`.
-5. Toggle **Developer mode** (top-right).
-6. Click **Load unpacked** and select this folder.
-7. Open the extension's options (click its toolbar icon, or **Details → Extension
+
+3. Open `chrome://extensions`.
+4. Toggle **Developer mode** (top-right).
+5. Click **Load unpacked** and select this folder.
+6. Open the extension's options (click its toolbar icon, or **Details → Extension
    options**), paste a GitHub token, click **Save**, then **Test**.
 
 ## GitHub token
