@@ -93,8 +93,8 @@ function applyData(badge, ref, data) {
     } else if (data && data.error === "noaccess") {
       badge.textContent = "No repo access →";
       badge.title =
-        `Your token can't read ${ref.owner}/${ref.repo}. Use a classic token with the ` +
-        "'repo' scope, or have the org approve a fine-grained token scoped to it. Click to open settings.";
+        `Your token can't read ${ref.owner}/${ref.repo}. Make sure your classic token has the ` +
+        "'repo' scope (and SSO authorized if your org requires it). Click to open settings.";
       badge.href = "#";
       badge.addEventListener("click", openOptions);
     } else if (data && data.error === "notfound") {

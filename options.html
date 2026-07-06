@@ -60,11 +60,11 @@
     <h1>GitHub PR status in Gmail</h1>
     <p>
       Paste a GitHub token so the extension can read PR status. A token is
-      required for private repositories (e.g. your neeto repos).
+      required for private repositories.
     </p>
 
     <label for="token">GitHub token</label>
-    <input id="token" type="password" placeholder="github_pat_… or ghp_…" autocomplete="off" />
+    <input id="token" type="password" placeholder="ghp_…" autocomplete="off" />
 
     <div class="row">
       <button id="save">Save</button>
@@ -76,44 +76,24 @@
       <summary>How to create a token</summary>
       <p>
         Go to
-        <a href="https://github.com/settings/tokens?type=beta" target="_blank" rel="noopener"
-          >github.com/settings/tokens</a
+        <a href="https://github.com/settings/tokens/new" target="_blank" rel="noopener"
+          >github.com/settings/tokens/new</a
         >
-        &rarr; <strong>Generate new token</strong> &rarr; <strong>Fine-grained</strong>, then:
+        to create a <strong>classic token</strong> &mdash; the simplest option, and it works
+        across every org you belong to. Then:
       </p>
       <ol>
-        <li><strong>Token name</strong>: <code>Gmail GitHub status for PRs</code></li>
-        <li>
-          <strong>Resource owner</strong>: pick <code>neetozone</code> here. This dropdown
-          <em>is</em> how you add the org &mdash; there is no separate &ldquo;add org&rdquo;
-          prompt. If <code>neetozone</code> is not listed, the org has not enabled
-          fine-grained tokens (or needs admin approval) &mdash; use the classic token below
-          instead.
-        </li>
-        <li><strong>Expiration</strong>: <code>No expiration</code></li>
-        <li><strong>Repository access</strong>: <em>All repositories</em> (or just the ones you get emails about).</li>
-        <li>
-          <strong>Repository permissions</strong>: <strong>Issues &rarr; Read-only</strong>
-          and <strong>Pull requests &rarr; Read-only</strong>.
-        </li>
+        <li><strong>Note</strong>: <code>GitHub PR status in Gmail</code></li>
+        <li><strong>Expiration</strong>: <code>90 days</code></li>
+        <li><strong>Select scopes</strong>: check <code>repo</code>.</li>
         <li><strong>Generate token</strong>, copy it, paste it above, and click Save.</li>
       </ol>
-      <p class="note">
-        <strong>Seeing &ldquo;No repo access&rdquo; or &ldquo;Not found&rdquo;?</strong>
-        Your token is valid but can&rsquo;t read the private repo &mdash; the fine-grained token
-        was most likely created under your <em>personal</em> account instead of
-        <code>neetozone</code>. Easiest fix: create a
-        <a href="https://github.com/settings/tokens/new" target="_blank" rel="noopener"
-          >classic token</a
-        >
-        with the <code>repo</code> scope. It works across every org you belong to with no
-        per-org opt-in or approval. (The <strong>Test</strong> button only checks that the token
-        is valid, not that it can see your repos.)
-      </p>
       <p>
-        The token is stored only in this browser via <code>chrome.storage.local</code> and is
-        sent only to <code>api.github.com</code>.
+        Seeing <strong>No repo access</strong>? Make sure the <code>repo</code> scope is
+        checked. If your organization enforces SAML SSO, also click
+        <strong>Configure SSO</strong> next to the token and authorize it for the org.
       </p>
+      <p class="note">🔒 This token is stored only in your browser, and is sent only to GitHub (<code>api.github.com</code>).</p>
     </details>
 
     <script src="options.js"></script>

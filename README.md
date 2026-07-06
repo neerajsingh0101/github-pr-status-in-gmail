@@ -6,6 +6,14 @@ subject line, using GitHub's own State-label icons and colors.
 
 No more opening the PR just to find out it was merged three weeks ago.
 
+**Open:**
+
+![Open pill next to a GitHub notification email's subject line in Gmail](docs/open-example.png)
+
+**Closed:**
+
+![Closed pill next to a GitHub notification email's subject line in Gmail](docs/closed-example.png)
+
 ## Features
 
 - GitHub-identical **State pills**: Open, Merged, Closed, Draft — right colors, right Octicons.
@@ -49,18 +57,19 @@ The token lives only in `chrome.storage.local` (this browser) and is sent only t
 
 ## GitHub token
 
-Private repos require a token.
+Private repos require a token. Create a **classic token** at
+<https://github.com/settings/tokens/new> — the simplest option, and it works across every
+org you belong to:
 
-**Recommended — classic token:** create one at
-<https://github.com/settings/tokens/new> with the **`repo`** scope. It works across every
-org you belong to with no per-org approval.
+- **Note**: `GitHub PR status in Gmail`
+- **Expiration**: `90 days`
+- **Select scopes**: check `repo`
+- **Generate token**, copy it, and paste it into the extension's settings.
 
-**Fine-grained token:** at <https://github.com/settings/tokens?type=beta>, set
-**Resource owner** to the org (e.g. `neetozone`), **Repository access** to the repos you
-need, and grant **Issues: Read-only** + **Pull requests: Read-only**. Note that the org must
-have fine-grained tokens enabled and may require admin approval.
+If your org enforces SAML SSO, also click **Configure SSO** next to the token and authorize
+it for the org.
 
-The token is stored in `chrome.storage.local` (this browser only) and is sent only to
+🔒 The token is stored only in your browser (`chrome.storage.local`) and is sent only to
 `api.github.com`.
 
 ## Troubleshooting
@@ -68,7 +77,7 @@ The token is stored in `chrome.storage.local` (this browser only) and is sent on
 | Pill says | Meaning |
 |-----------|---------|
 | **Set GitHub token →** | No token saved. Click it to open options. |
-| **No repo access →** | Token is valid but can't read that repo — use a classic `repo`-scoped token, or an org-approved fine-grained token. |
+| **No repo access →** | Token can't read that repo — make sure the `repo` scope is checked, and authorize SSO if your org requires it. |
 | **Not found** | The repo is readable but that issue/PR number doesn't exist. |
 | **Rate limited** | GitHub API rate limit hit; try again shortly. |
 
