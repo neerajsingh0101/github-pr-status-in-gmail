@@ -1,6 +1,6 @@
 # GitHub PR status in Gmail
 
-A tiny Chrome extension (Manifest V3) that shows the live status of the GitHub issue
+A tiny Chrome extension that shows the live status of the GitHub issue
 or pull request referenced in a Gmail notification email — as a pill next to the
 subject line, using GitHub's own State-label icons and colors.
 
@@ -20,7 +20,6 @@ No more opening the PR just to find out it was merged three weeks ago.
 - Handles issues **and** PRs, and correctly distinguishes merged vs. closed vs. draft.
 - Click the pill to jump straight to the issue/PR on GitHub.
 - Works with private repos via a GitHub token stored locally in your browser.
-- No placeholder or flicker — the pill appears only once the status resolves.
 - Results cached for 5 minutes to stay well under API rate limits.
 
 ## Status → color
@@ -47,12 +46,18 @@ No more opening the PR just to find out it was merged three weeks ago.
 The token lives only in `chrome.storage.local` (this browser) and is sent only to
 `api.github.com`.
 
-## Install (unpacked)
+## How to install and use it
 
-1. Open `chrome://extensions`.
-2. Toggle **Developer mode** (top-right).
-3. Click **Load unpacked** and select this folder.
-4. Open the extension's options (click its toolbar icon, or **Details → Extension
+This Chrome extension is not published on the chrome web store. Please follow the instructions
+mentioned below to install it.
+
+1. Open https://github.com/neerajsingh0101/github-pr-status-in-gmail . 
+2. Click **Code**.
+3. Click **Download zip**. <img width="432" height="402" alt="Image" src="https://github.com/user-attachments/assets/50e24379-a1a8-4742-b287-bc753114b415" />
+4. Open `chrome://extensions`.
+5. Toggle **Developer mode** (top-right).
+6. Click **Load unpacked** and select this folder.
+7. Open the extension's options (click its toolbar icon, or **Details → Extension
    options**), paste a GitHub token, click **Save**, then **Test**.
 
 ## GitHub token
