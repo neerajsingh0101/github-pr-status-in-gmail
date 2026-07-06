@@ -1,4 +1,4 @@
-# Gmail GitHub PR Status
+# GitHub PR status in Gmail
 
 A tiny Chrome extension (Manifest V3) that shows the live status of the GitHub issue
 or pull request referenced in a Gmail notification email — as a pill next to the

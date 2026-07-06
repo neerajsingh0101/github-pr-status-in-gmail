@@ -73,6 +73,12 @@ async function fetchStatus(ref) {
   return { ok: true, title: issue.title, url: issue.html_url, ...c };
 }
 
+// Clicking the toolbar icon opens the full-width settings page in a tab
+// (a popup would be capped at 800px by Chrome and hard to read).
+chrome.action.onClicked.addListener(() => {
+  chrome.runtime.openOptionsPage();
+});
+
 chrome.runtime.onMessage.addListener((msg, _sender, sendResponse) => {
   if (msg && msg.type === "OPEN_OPTIONS") {
     chrome.runtime.openOptionsPage();
