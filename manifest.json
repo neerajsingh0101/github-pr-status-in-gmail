@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Gmail GitHub PR Status",
+  "version": "1.0.0",
+  "description": "Shows the status (Open / Merged / Closed / Draft) of the GitHub issue or PR referenced in a Gmail notification email, color-matched to GitHub's own State labels.",
+  "permissions": ["storage"],
+  "host_permissions": ["https://api.github.com/*"],
+  "background": { "service_worker": "background.js" },
+  "options_page": "options.html",
+  "action": {
+    "default_title": "Gmail GitHub PR Status — set token",
+    "default_popup": "options.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://mail.google.com/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}

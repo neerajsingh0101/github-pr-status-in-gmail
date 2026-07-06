@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Gmail GitHub PR Status — Options</title>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        max-width: 560px;
+        margin: 32px auto;
+        padding: 0 20px;
+        color: #1f2328;
+      }
+      h1 { font-size: 18px; }
+      p { line-height: 1.5; color: #57606a; }
+      label { display: block; font-weight: 600; margin: 18px 0 6px; }
+      input[type="password"] {
+        width: 100%;
+        padding: 8px 10px;
+        font-size: 14px;
+        border: 1px solid #d0d7de;
+        border-radius: 6px;
+        box-sizing: border-box;
+      }
+      .row { display: flex; align-items: center; gap: 12px; margin-top: 14px; }
+      button {
+        background: #1f883d;
+        color: #fff;
+        border: 0;
+        padding: 8px 16px;
+        font-size: 14px;
+        font-weight: 600;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background 0.15s ease, transform 0.1s ease;
+      }
+      button.secondary { background: #59636e; }
+      button.saved {
+        background: #1a7f37;
+        font-weight: 700;
+        box-shadow: 0 0 0 3px rgba(31, 136, 61, 0.25);
+      }
+      #status { font-size: 13px; color: #57606a; }
+      details { margin-top: 24px; color: #57606a; font-size: 14px; line-height: 1.6; }
+      summary { font-weight: 600; cursor: pointer; margin-bottom: 8px; }
+      ol { padding-left: 20px; }
+      ol li { margin: 6px 0; }
+      code { background: #eff1f3; padding: 1px 5px; border-radius: 4px; }
+      .note {
+        background: #fff8c5;
+        border: 1px solid #eac54f;
+        border-radius: 6px;
+        padding: 10px 12px;
+      }
+      a { color: #0969da; }
+    </style>
+  </head>
+  <body>
+    <h1>Gmail GitHub PR Status</h1>
+    <p>
+      Paste a GitHub token so the extension can read issue and PR status. A token is
+      required for private repositories (e.g. your neeto repos).
+    </p>
+
+    <label for="token">GitHub token</label>
+    <input id="token" type="password" placeholder="github_pat_… or ghp_…" autocomplete="off" />
+
+    <div class="row">
+      <button id="save">Save</button>
+      <button id="test" class="secondary">Test</button>
+      <span id="status"></span>
+    </div>
+
+    <details open>
+      <summary>How to create a token</summary>
+      <p>
+        Go to
+        <a href="https://github.com/settings/tokens?type=beta" target="_blank" rel="noopener"
+          >github.com/settings/tokens</a
+        >
+        &rarr; <strong>Generate new token</strong> &rarr; <strong>Fine-grained</strong>, then:
+      </p>
+      <ol>
+        <li><strong>Token name</strong>: <code>Gmail GitHub status for PRs</code></li>
+        <li><strong>Expiration</strong>: <code>No expiration</code></li>
+        <li>
+          <strong>Resource owner</strong>: pick <code>neetozone</code> here. This dropdown
+          <em>is</em> how you add the org &mdash; there is no separate &ldquo;add org&rdquo;
+          prompt. If <code>neetozone</code> is not listed, the org has not enabled
+          fine-grained tokens (or needs admin approval) &mdash; use the classic token below
+          instead.
+        </li>
+        <li><strong>Repository access</strong>: <em>All repositories</em> (or just the ones you get emails about).</li>
+        <li>
+          <strong>Repository permissions</strong>: <strong>Issues &rarr; Read-only</strong>
+          and <strong>Pull requests &rarr; Read-only</strong>.
+        </li>
+        <li><strong>Generate token</strong>, copy it, paste it above, and click Save.</li>
+      </ol>
+      <p class="note">
+        <strong>Seeing &ldquo;No repo access&rdquo; or &ldquo;Not found&rdquo;?</strong>
+        Your token is valid but can&rsquo;t read the private repo &mdash; the fine-grained token
+        was most likely created under your <em>personal</em> account instead of
+        <code>neetozone</code>. Easiest fix: create a
+        <a href="https://github.com/settings/tokens/new" target="_blank" rel="noopener"
+          >classic token</a
+        >
+        with the <code>repo</code> scope. It works across every org you belong to with no
+        per-org opt-in or approval. (The <strong>Test</strong> button only checks that the token
+        is valid, not that it can see your repos.)
+      </p>
+      <p>
+        The token is stored only in this browser via <code>chrome.storage.local</code> and is
+        sent only to <code>api.github.com</code>.
+      </p>
+    </details>
+
+    <script src="options.js"></script>
+  </body>
+</html>

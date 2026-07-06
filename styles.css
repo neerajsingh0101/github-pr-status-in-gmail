@@ -1,0 +1,47 @@
+.gh-pr-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  color: #ffffff !important;
+  text-decoration: none !important;
+  vertical-align: middle;
+  white-space: nowrap;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  cursor: pointer;
+}
+
+.gh-pr-inline {
+  margin-left: 12px;
+}
+
+.gh-pr-fixed {
+  position: fixed;
+  top: 76px;
+  right: 28px;
+  z-index: 2147483647;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+}
+
+.gh-pr-badge:hover {
+  filter: brightness(1.06);
+}
+
+.gh-pr-icon {
+  display: block;
+  flex: none;
+}
+
+.gh-pr-label {
+  color: #ffffff !important;
+}
+
+/* GitHub State-label colors */
+.gh-pr-green  { background: #1f883d; }
+.gh-pr-purple { background: #8250df; }
+.gh-pr-red    { background: #cf222e; }
+.gh-pr-gray   { background: #59636e; }
