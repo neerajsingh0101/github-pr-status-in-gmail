@@ -53,7 +53,8 @@ mentioned below to install it.
 
 1. Open https://github.com/neerajsingh0101/github-pr-status-in-gmail . 
 2. Click **Code**.
-3. Click **Download zip**. <img width="432" height="402" alt="Image" src="https://github.com/user-attachments/assets/50e24379-a1a8-4742-b287-bc753114b415" />
+3. Click **Download zip**.
+   <img width="432" height="402" alt="Image" src="https://github.com/user-attachments/assets/50e24379-a1a8-4742-b287-bc753114b415" />
 4. Open `chrome://extensions`.
 5. Toggle **Developer mode** (top-right).
 6. Click **Load unpacked** and select this folder.
